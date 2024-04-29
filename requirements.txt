@@ -1,5 +1,6 @@
-pandas
-numpy
-joblib
+pandas == 2.2.1
+numpy ==1.26.4
+joblib == 1.4.0
 tensorflow
-sklearn
+scikit-learn==1.4.2
+streamlit==1.33.0
