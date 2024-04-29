@@ -14,6 +14,8 @@ input_text = st.text_input('Ingrese texto a completar')
 def generate_text(model, tokenizer, input_text, num_words):
     input_seq = tokenizer.texts_to_sequences([input_text])
 
+    input_seq = pad_sequences(input_seq, maxlen=20)
+
     generated_sentence = input_text
     for _ in range(num_words):
         predicted_probabilities = model.predict(input_seq, verbose=0)
