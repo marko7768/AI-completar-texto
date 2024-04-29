@@ -11,13 +11,10 @@ st.title('Aplicación ML')
 input_text = st.text_input('Ingrese texto a completar')
 
 def generate_text(model, tokenizer, input_text, num_words):
-sequences = tokenizer.texts_to_sequences(texts[0])
+    input_seq = tokenizer.texts_to_sequences([input_text])
+    input_seq = pad_sequences(input_seq, maxlen=maxlen-1)
 
-# Padding para igualar la longitud de las secuencias
-maxlen = max(len(seq) for seq in sequences)
-padded_sequences = pad_sequences(sequences, maxlen=maxlen)
- 
- generated_sentence = input_text
+    generated_sentence = input_text
     for _ in range(num_words):
         predicted_probabilities = model.predict(input_seq, verbose=0)
         predicted_word_idx = np.random.choice(len(predicted_probabilities[0]), p=predicted_probabilities[0])
