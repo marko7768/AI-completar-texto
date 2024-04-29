@@ -1,12 +1,13 @@
 import streamlit as st
-from sklearn.feature_extraction.text import TfidfVectorizer
 from tensorflow.keras.models import load_model
 import joblib
+from tensorflow.keras.preprocessing.text import Tokenizer
+from tensorflow.keras.preprocessing.sequence import pad_sequences
 
 model = load_model('modelo_text.h5')
 tokenizer = joblib.load('tokenizer.pkl')
 
-st.title('Aplicación ML')
+st.title('Aplicación AI')
 
 input_text = st.text_input('Ingrese texto a completar')
 
