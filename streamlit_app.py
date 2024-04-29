@@ -3,6 +3,7 @@ from tensorflow.keras.models import load_model
 import joblib
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
+import numpy as np
 
 model = load_model('modelo_text.h5')
 tokenizer = joblib.load('tokenizer.pkl')
