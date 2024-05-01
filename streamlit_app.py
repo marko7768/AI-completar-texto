@@ -5,7 +5,7 @@ from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 import numpy as np
 
-model = load_model('modelo_text1.h5')
+model = load_model('modelo_text.h5')
 tokenizer = joblib.load('tokenizer.pkl')
 
 st.title('Aplicación AI')
