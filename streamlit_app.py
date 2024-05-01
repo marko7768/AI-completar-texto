@@ -5,7 +5,7 @@ from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 import numpy as np
 
-model = load_model('modelo_text.h5')
+model = load_model('modelo_text1.h5')
 tokenizer = joblib.load('tokenizer.pkl')
 
 st.title('Aplicación AI')
@@ -15,7 +15,7 @@ input_text = st.text_input('Ingrese texto a completar')
 def generate_text(model, tokenizer, input_text, num_words):
     input_seq = tokenizer.texts_to_sequences([input_text])
 
-    input_seq = pad_sequences(input_seq, maxlen=20)
+    input_seq = pad_sequences(input_seq, maxlen=100)
 
     generated_sentence = input_text
     for _ in range(num_words):
