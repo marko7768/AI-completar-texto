@@ -5,12 +5,14 @@ from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 import numpy as np
 
-model = load_model('modelo_text.h5')
-tokenizer = joblib.load('tokenizer.pkl')
+model = load_model('modelo/modelo_text.h5')
+tokenizer = joblib.load('modelo/tokenizer.pkl')
 
 st.title('Aplicación AI')
 
 input_text = st.text_input('Ingrese texto a completar')
+
+cant_words = st.slider("Cantidad de palabras",1,10,1)
 
 def generate_text(model, tokenizer, input_text, num_words):
     input_seq = tokenizer.texts_to_sequences([input_text])
@@ -31,5 +33,5 @@ def generate_text(model, tokenizer, input_text, num_words):
     return generated_sentence
 
 if st.button('Completar'):
-    generated_text = generate_text(model, tokenizer, input_text, num_words=3)
+    generated_text = generate_text(model, tokenizer, input_text, cant_words)
     st.write(f'{generated_text}')
